@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
-import { LuSearch } from "react-icons/lu";
+import SearchInput from "@/components/searchInput";
 
 export default function Home() {
   return (
@@ -17,29 +17,16 @@ export default function Home() {
             <h1 className="text-4xl font-bold mb-4">
               Bem-vindo ao Lado Nerd da Força
             </h1>
-            <p className="text-xl mb-8">
-              Seu portal para o universo geek: cinema, quadrinhos, games e
-              tecnologia!
-            </p>
-            <div className="relative">
-              <Input
-                type="search"
-                placeholder="Pesquisar artigos..."
-                className="w-full md:w-96 pl-10 bg-white text-[#1a1a1a]"
-              />
-              <LuSearch
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#1a1a1a]"
-                size={20}
-              />
-            </div>
+            <p className="text-xl mb-8">Conectando você ao universo nerd!</p>
           </div>
+          <SearchInput className="hidden md:visible md:flex" />
         </section>
 
         <section className="py-12">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-8">Artigos em Destaque</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[1, 2, 3, 4, 5].map((i) => (
                 <Card
                   key={i}
                   className={`relative overflow-hidden group ${
