@@ -13,7 +13,8 @@ import {
   LuGlobe,
   LuPencil,
 } from "react-icons/lu";
-import logo from "@/app/assets/logo.png";
+import logo from "../app/assets/logo.png";
+import SearchInput from "@/components/searchInput";
 
 export default function Menu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,9 +63,9 @@ export default function Menu() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold flex items-center gap-1">
-            <Image className="w-12" alt="" src={logo} />
-            lndf
+            <Image className="w-20" alt="" src={logo} />
           </Link>
+          <SearchInput className="md:hidden" />
           <button onClick={toggleMenu} className="md:hidden">
             {isMenuOpen ? <LuX size={24} /> : <LuMenu size={24} />}
           </button>
@@ -73,9 +74,10 @@ export default function Menu() {
               isMenuOpen ? "flex" : "hidden"
             } md:flex flex-col md:flex-row absolute md:relative top-full left-0 w-full md:w-auto bg-[#005aaf] md:bg-transparent`}
           >
-            {menuItems.map((item) => {
+            {menuItems.map((item, idx) => {
               return (
                 <Link
+                  key={idx}
                   href={item.link}
                   className="p-4 md:p-2 hover:bg-[#d7263d] transition-colors flex items-center"
                 >
