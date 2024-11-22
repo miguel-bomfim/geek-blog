@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4 underline">
-              O Lado Nerd da Força
+              Perfil Nerd
             </h3>
             <p>Seu portal para o universo geek</p>
           </div>
@@ -81,7 +81,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 text-center">
-          <p>&copy; 2024 O Lado Nerd da Força. Todos os direitos reservados.</p>
+          <p>&copy; 2024 Perfil Nerd. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
