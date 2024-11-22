@@ -13,7 +13,7 @@ import {
   LuGlobe,
   LuPencil,
 } from "react-icons/lu";
-import logo from "../app/assets/logo.png";
+import logo from "../app/assets/logo.jpeg";
 import SearchInput from "@/components/searchInput";
 
 export default function Menu() {
@@ -59,7 +59,7 @@ export default function Menu() {
   ];
 
   return (
-    <header className="bg-[#005aaf] text-white sticky top-0 z-50">
+    <header className="bg-[#1B263B] text-white sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold flex items-center gap-1">
