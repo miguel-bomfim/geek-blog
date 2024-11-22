@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import SearchInput from "@/components/searchInput";
+import Reviews from "@/components/reviews";
 
 export default function Home() {
   return (
@@ -12,19 +13,21 @@ export default function Home() {
       <Menu />
 
       <main className="flex-grow">
-        <section className="bg-[#005aaf] text-white py-12">
+        <section className="bg-[#1B263B] text-white py-12">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl font-bold mb-4">
-              Bem-vindo ao Lado Nerd da Força
+              Bem-vindo ao Perfil Nerd
             </h1>
             <p className="text-xl mb-8">Conectando você ao universo nerd!</p>
           </div>
           <SearchInput className="hidden md:visible md:flex" />
         </section>
 
-        <section className="py-12">
+        <section className="py-12 bg-[#F2F2F2]">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8">Artigos em Destaque</h2>
+            <h2 className="text-3xl font-bold mb-8 text-black">
+              Artigos em Destaque
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[1, 2, 3, 4, 5].map((i) => (
                 <Card
@@ -76,7 +79,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[#0b3d91] py-12">
+        <section className="bg-[#1A1A1A]">
+          <Reviews />
+        </section>
+
+        <section className="bg-[#1B263B] py-12">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-8 text-center">
               Contribua com o lado nerd da força!
