@@ -86,7 +86,7 @@ export default function Home() {
         <section className="bg-[#1B263B] py-12">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-8 text-center">
-              Contribua com o lado nerd da força!
+              Contribua com o Perfil Nerd!
             </h2>
             <form className="max-w-md mx-auto flex flex-col gap-4">
               <Input
