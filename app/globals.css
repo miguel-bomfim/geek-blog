@@ -5,3 +5,19 @@
 body {
   background-color: #f2f2f2;
 }
+
+p,
+li,
+span,
+a,
+button,
+input,
+textarea {
+  font-family: var(--font-roboto-regular);
+}
+
+input,
+textarea,
+button {
+  border-radius: 12px !important;
+}
