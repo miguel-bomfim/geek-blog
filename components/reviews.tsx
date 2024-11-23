@@ -49,14 +49,14 @@ export default function Reviews() {
               alt={movie.title}
               width={300}
               height={400}
-              className="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out"
             />
             <p className="mt-2 text-center font-medium">{movie.title}</p>
           </div>
         ))}
         <Link
           href="/todos-os-filmes"
-          className="flex flex-col hover:text-black items-center justify-center rounded-lg shadow-md hover:bg-gray-200 transition-colors duration-300 ease-in-out border-white border-2"
+          className="flex flex-col hover:text-black items-center justify-center rounded-xl shadow-md hover:bg-gray-200 transition-colors duration-300 ease-in-out border-white border-2"
         >
           <p className="text-xl font-bold">Ver mais</p>
           <p className="text-sm text-gray-600">Todos as críticas</p>
