@@ -13,7 +13,7 @@ import {
   LuGlobe,
   LuPencil,
 } from "react-icons/lu";
-import logo from "../app/assets/logo.jpeg";
+import logo from "../app/assets/logo.png";
 import SearchInput from "@/components/searchInput";
 
 export default function Menu() {
