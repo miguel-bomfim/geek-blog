@@ -6,8 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import SearchInput from "@/components/searchInput";
 import Reviews from "@/components/reviews";
+import { fetchPosts } from "@/services/hygraphApi";
 
-export default function Home() {
+export default async function Home() {
+  const posts = await fetchPosts();
+
   return (
     <div className="min-h-screen flex flex-col bg-[#1a1a1a] text-white">
       <Menu />
@@ -29,45 +32,39 @@ export default function Home() {
               Artigos em Destaque
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[1, 2, 3, 4, 5].map((i) => (
+              {posts.map((post, i) => (
                 <Card
                   key={i}
                   className={`relative overflow-hidden group ${
-                    i === 1 ? "md:col-span-2 md:row-span-2" : ""
+                    i === 0 ? "md:col-span-2 md:row-span-2" : ""
                   }`}
                 >
                   <img
-                    src={`https://picsum.photos/seed/${i}/${
-                      i === 1 ? "1200/800" : "800/600"
-                    }`}
+                    src={post.node.imagemDestaque.url}
                     alt={`Imagem do Artigo ${i}`}
                     className={`w-full object-cover transition-transform duration-300 group-hover:scale-110 ${
-                      i === 1 ? "h-[600px] md:h-[800px]" : "h-80"
+                      i === 0 ? "h-[600px] md:h-full" : "h-80"
                     }`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3
                       className={`font-bold mb-2 text-white ${
-                        i === 1 ? "text-4xl" : "text-2xl"
+                        i === 0 ? "text-4xl" : "text-2xl"
                       }`}
                     >
-                      Artigo {i}
+                      {post.node.titulo}
                     </h3>
                     <p
                       className={`text-gray-200 ${
-                        i === 1 ? "text-xl" : "text-base"
+                        i === 0 ? "text-xl" : "text-base"
                       }`}
                     >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                      {i === 1 &&
-                        " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
+                      {post.node.resumo}
                     </p>
                     <Button
                       className={`mt-4 bg-[#d7263d] hover:bg-[#b51d31] transition-colors ${
-                        i === 1 ? "text-lg px-6 py-3" : ""
+                        i === 0 ? "text-lg px-6 py-3" : ""
                       }`}
                     >
                       Ler mais
