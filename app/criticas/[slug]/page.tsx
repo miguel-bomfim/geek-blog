@@ -1,5 +1,3 @@
-
-import Author from "@/components/author";
 import StarRating from "@/components/starRating";
 
 import Image from "next/image"
@@ -25,7 +23,6 @@ const movieRating = 4.5
           />
         </div>
 
-        <Author />
         <div className="flex justify-center">
           <StarRating rating={movieRating} />
         </div>
