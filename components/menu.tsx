@@ -15,8 +15,13 @@ import {
 } from "react-icons/lu";
 import logo from "../app/assets/logo.png";
 import SearchInput from "@/components/searchInput";
+import { CategoryType } from "../types";
 
-export default function Menu() {
+interface MenuType {
+  categories: CategoryType[];
+}
+
+export default function Menu({ categories }: MenuType) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -74,15 +79,20 @@ export default function Menu() {
               isMenuOpen ? "flex" : "hidden"
             } md:flex flex-col md:flex-row absolute md:relative top-full left-0 w-full md:w-auto bg-[#005aaf] md:bg-transparent`}
           >
-            {menuItems.map((item, idx) => {
+            <Link
+              href="/"
+              className="p-4 md:p-2 hover:bg-[#d7263d] transition-colors flex items-center"
+            >
+              Home
+            </Link>
+            {categories.map((category, idx) => {
               return (
                 <Link
                   key={idx}
-                  href={item.link}
+                  href={category.slug}
                   className="p-4 md:p-2 hover:bg-[#d7263d] transition-colors flex items-center"
                 >
-                  {item.icon}
-                  {item.categoria}
+                  {category.nome}
                 </Link>
               );
             })}

@@ -12,12 +12,19 @@ span,
 a,
 button,
 input,
-textarea {
+textarea,
+blockquote {
   font-family: var(--font-roboto-regular);
+}
+
+h1,
+h2 {
+  font-family: var(--font-roboto-bold);
 }
 
 input,
 textarea,
-button {
+button,
+a {
   border-radius: 12px !important;
 }

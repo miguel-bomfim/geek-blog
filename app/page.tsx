@@ -1,20 +1,17 @@
-import Menu from "@/components/menu";
-import Footer from "@/components/footer";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import SearchInput from "@/components/searchInput";
 import Reviews from "@/components/reviews";
-import { fetchPosts } from "@/services/hygraphApi";
+import { fetchPosts, fetchCategories } from "@/services/hygraphApi";
 
 export default async function Home() {
   const posts = await fetchPosts();
 
   return (
     <div className="min-h-screen flex flex-col bg-[#1a1a1a] text-white">
-      <Menu />
-
       <main className="flex-grow">
         <section className="bg-[#1B263B] text-white py-12">
           <div className="container mx-auto px-4">
@@ -56,19 +53,20 @@ export default async function Home() {
                       {post.node.titulo}
                     </h3>
                     <p
-                      className={`text-gray-200 ${
+                      className={`text-gray-200 mb-4 ${
                         i === 0 ? "text-xl" : "text-base"
                       }`}
                     >
                       {post.node.resumo}
                     </p>
-                    <Button
-                      className={`mt-4 bg-[#d7263d] hover:bg-[#b51d31] transition-colors ${
-                        i === 0 ? "text-lg px-6 py-3" : ""
+                    <Link
+                      href={`post/${post.node.slug}`}
+                      className={`mt-4 bg-[#d7263d] px-6 py-3 hover:bg-[#b51d31] transition-colors ${
+                        i === 0 && "text-lg"
                       }`}
                     >
                       Ler mais
-                    </Button>
+                    </Link>
                   </div>
                 </Card>
               ))}
@@ -104,8 +102,6 @@ export default async function Home() {
             </form>
           </div>
         </section>
-
-        <Footer />
       </main>
     </div>
   );
