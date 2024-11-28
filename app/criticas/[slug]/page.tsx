@@ -12,7 +12,7 @@ const movieRating = 4.5
     <div className="max-w-2xl mx-auto px-4 py-8 bg-gray-50 min-h-screen">
       <article className="space-y-6">
         <h1 className="text-4xl font-bold text-center text-[#1B263B]">
-          Guardiões da Galaxia Vol. 3": Um Adeus Emocionante e Hilário
+          Guardiões da Galaxia Vol. 3: Um Adeus Emocionante e Hilário
         </h1>
         
         <div className="relative w-full h-64 overflow-hidden rounded-lg shadow-lg">
@@ -39,7 +39,7 @@ const movieRating = 4.5
         </p>
         
         <p className="text-lg leading-relaxed text-gray-700">
-          Embora o ritmo possa ser um pouco irregular em alguns momentos, "Guardiões da Galáxia Vol. 3" é uma despedida emocionante e satisfatória para esses amados personagens. É uma montanha-russa de emoções que fará você rir, chorar e torcer pelos nossos heróis imperfeitos favoritos.
+          Embora o ritmo possa ser um pouco irregular em alguns momentos, Guardiões da Galáxia Vol. 3 é uma despedida emocionante e satisfatória para esses amados personagens. É uma montanha-russa de emoções que fará você rir, chorar e torcer pelos nossos heróis imperfeitos favoritos.
         </p>
         
         <div className="text-center">
