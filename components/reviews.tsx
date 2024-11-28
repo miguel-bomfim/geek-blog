@@ -15,7 +15,7 @@ const movies: Movie[] = [
   },
   {
     id: 2,
-    title: "The Shawshank Redemption",
+    title: "Redemption",
     imageUrl: "https://picsum.photos/seed/70/800/600",
   },
   {
@@ -44,16 +44,16 @@ export default function Reviews() {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {movies.slice(0, 6).map((movie) => (
           <Link
-            href={movie.title.trim()}
+            href={`criticas/${movie.title.trim()}`}
             key={movie.id}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center justify-between"
           >
             <Image
               src={movie.imageUrl}
               alt={movie.title}
               width={300}
               height={400}
-              className="rounded-xl transition hover:invert shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="min-h-[136px] grow object-cover rounded-xl transition hover:invert shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out"
             />
             <p className="mt-2 text-center font-medium">{movie.title}</p>
           </Link>

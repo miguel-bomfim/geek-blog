@@ -31,7 +31,7 @@ export default function PostDetails({ conteudo }: { conteudo: string }) {
 
       const paragraphs = contentRef.current.querySelectorAll("p");
       paragraphs.forEach((p) => {
-        p.classList.add("mb-4", "leading-relaxed");
+        p.classList.add("mb-4", "leading-relaxed", "text-justify");
       });
 
       const links = contentRef.current.querySelectorAll("a");

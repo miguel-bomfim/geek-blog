@@ -13,9 +13,9 @@ export default function Author({ name, photoUrl, bio }: AuthorProps) {
         <Image
           src={photoUrl}
           alt={`Photo of ${name}`}
-          width={64}
-          height={64}
-          className="rounded-full"
+          width={75}
+          height={75}
+          className="rounded-full rounded-full border-2 border-orange-00 min-h-[75px]"
         />
       </div>
       <div>
@@ -24,6 +24,7 @@ export default function Author({ name, photoUrl, bio }: AuthorProps) {
         <p className="text-sm text-gray-500 mt-2">
           Esse conteúdo foi escrito por {name}
         </p>
+
       </div>
     </div>
   );
