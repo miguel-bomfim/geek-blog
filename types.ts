@@ -1,17 +1,19 @@
+type Author = {
+  bio: string;
+  nome: string;
+  id: string;
+  foto: {
+    url: string;
+  };
+};
+
 export interface PostsType {
   data: {
     postsConnection: {
       edges: [
         {
           node: {
-            autor: {
-              bio: string;
-              nome: string;
-              id: string;
-              foto: {
-                url: string;
-              };
-            };
+            autor?: Author;
             createdAt: string;
             slug: string;
             titulo: string;
@@ -19,12 +21,7 @@ export interface PostsType {
             imagemDestaque: {
               url: string;
             };
-            categoria: [
-              {
-                nome: string;
-                slug: string;
-              }
-            ];
+            categoria: CategoryType[];
           };
         }
       ];
@@ -51,6 +48,6 @@ export interface SinglePostsType {
 }
 
 export interface CategoryType {
-  nome: string;
-  slug: string;
+  nome?: string;
+  slug?: string;
 }

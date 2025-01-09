@@ -1,7 +1,7 @@
 import { CategoryType, PostsType, SinglePostsType } from "../types";
+const HYGRAPH_ENDPOINT = process.env.HYGRAPH_API || "";
 
 export const fetchPosts = async () => {
-  const HYGRAPH_ENDPOINT = process.env.HYGRAPH_API || "";
   const response = await fetch(HYGRAPH_ENDPOINT, {
     method: "POST",
     headers: {
@@ -9,7 +9,7 @@ export const fetchPosts = async () => {
     },
     body: JSON.stringify({
       query: `query Posts {
-            postsConnection(last: 6) {
+            postsConnection(orderBy: createdAt_DESC, first: 5) {
               edges {
                 node {
                   autor {
@@ -42,7 +42,6 @@ export const fetchPosts = async () => {
 };
 
 export const fetchSinglePost = async (slug: string) => {
-  const HYGRAPH_ENDPOINT = process.env.HYGRAPH_API || "";
   const response = await fetch(HYGRAPH_ENDPOINT, {
     method: "POST",
     headers: {
@@ -74,7 +73,6 @@ export const fetchSinglePost = async (slug: string) => {
 };
 
 export const fetchCategories = async () => {
-  const HYGRAPH_ENDPOINT = process.env.HYGRAPH_API || "";
   const response = await fetch(HYGRAPH_ENDPOINT, {
     method: "POST",
     headers: {
@@ -95,4 +93,38 @@ export const fetchCategories = async () => {
     };
   } = await response.json();
   return categoriesData.data.categorias;
+};
+
+export const fetchCategoryPosts = async (slug: string) => {
+  const response = await fetch(HYGRAPH_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query: `query CategoryPostsQuery($slug: String!) {
+        postsConnection(where: {categoria_some: {slug: $slug}}) {
+          edges {
+            node {
+              createdAt
+              titulo
+              slug
+              imagemDestaque {
+                url
+              }
+              resumo
+              categoria {
+                nome
+              }
+            }
+          }
+        }
+      }`,
+      variables: {
+        slug,
+      },
+    }),
+  });
+  const categoryPosts: PostsType = await response.json();
+  return categoryPosts.data.postsConnection.edges;
 };

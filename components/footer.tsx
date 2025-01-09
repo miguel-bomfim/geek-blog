@@ -2,14 +2,14 @@ import Link from "next/link";
 import { LuInstagram } from "react-icons/lu";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-[#1a1a1a] text-white py-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4 underline">
-              Perfil Nerd
-            </h3>
+            <h3 className="text-xl font-bold mb-4 underline">Perfil Nerd</h3>
             <p>Seu portal para o universo geek</p>
           </div>
           <div>
@@ -81,7 +81,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 text-center">
-          <p>&copy; 2024 Perfil Nerd. Todos os direitos reservados.</p>
+          <p>
+            &copy;
+            {`${currentYear} Perfil Nerd. Todos os direitos reservados.`}
+          </p>
         </div>
       </div>
     </footer>
