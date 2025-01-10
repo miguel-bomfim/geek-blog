@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
-import { fetchCategoryPosts } from "@/services/hygraphApi";
+import { fetchCategoryPosts, fetchCategories } from "@/services/hygraphApi";
 
 export default async function CategoryPosts({
   params,
@@ -48,4 +48,13 @@ export default async function CategoryPosts({
       </main>
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  const categories = await fetchCategories();
+
+  return {
+    paths: categories.map(({ slug }) => ({ params: { slug } })),
+    fallback: true,
+  };
 }
