@@ -1,4 +1,4 @@
-import { fetchSinglePost } from "@/services/hygraphApi";
+import { fetchSinglePost, fetchPosts } from "@/services/hygraphApi";
 import PostDetails from "@/components/postDetails";
 import Author from "@/components/author";
 
@@ -20,4 +20,17 @@ export default async function PostPage({
       />
     </article>
   );
+}
+
+export async function generateStaticParams() {
+  const posts = await fetchPosts();
+
+  return posts.map((post) => ({
+    slug: post.node.slug,
+  }));
+
+  // return {
+  //   paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
+  //   fallback: true,
+  // };
 }
