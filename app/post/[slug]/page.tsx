@@ -22,10 +22,12 @@ export default async function PostPage({
   );
 }
 
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
   const posts = await fetchPosts();
 
-  return {
-    paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-  };
+  return posts.map(({ node: { slug } }) => ({
+    slug: slug,
+  }));
 }
