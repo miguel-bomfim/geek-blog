@@ -27,6 +27,5 @@ export async function generateStaticParams() {
 
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: true,
   };
 }
