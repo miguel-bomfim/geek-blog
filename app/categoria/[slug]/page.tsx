@@ -49,12 +49,3 @@ export default async function CategoryPosts({
     </div>
   );
 }
-
-export async function generateStaticParams() {
-  const categories = await fetchCategories();
-
-  return {
-    paths: categories.map(({ slug }) => ({ params: { slug } })),
-    fallback: true,
-  };
-}
