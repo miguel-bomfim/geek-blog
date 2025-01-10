@@ -35,6 +35,7 @@ export const fetchPosts = async () => {
               }
             }
           }`,
+      next: { revalidate: 60 },
     }),
   });
   const postsData: PostsType = await response.json();
@@ -66,6 +67,7 @@ export const fetchSinglePost = async (slug: string) => {
       variables: {
         slug,
       },
+      next: { revalidate: 60 },
     }),
   });
   const postsData: SinglePostsType = await response.json();
@@ -86,6 +88,7 @@ export const fetchCategories = async () => {
         }
           }`,
     }),
+    next: { revalidate: 60 },
   });
   const categoriesData: {
     data: {
@@ -124,6 +127,7 @@ export const fetchCategoryPosts = async (slug: string) => {
         slug,
       },
     }),
+    next: { revalidate: 60 },
   });
   const categoryPosts: PostsType = await response.json();
   return categoryPosts.data.postsConnection.edges;

@@ -21,13 +21,3 @@ export default async function PostPage({
     </article>
   );
 }
-
-export const dynamicParams = true;
-
-export async function generateStaticParams() {
-  const posts = await fetchPosts();
-
-  return posts.map(({ node: { slug } }) => ({
-    slug: slug,
-  }));
-}

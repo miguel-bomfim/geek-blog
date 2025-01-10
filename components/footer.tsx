@@ -28,7 +28,7 @@ export default function Footer() {
                   href="#"
                   className="hover:text-[#d7263d] transition-colors"
                 >
-                  Weeb
+                  Otaku
                 </Link>
               </li>
               <li>
@@ -55,17 +55,9 @@ export default function Footer() {
                   Variedades
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#d7263d] transition-colors"
-                >
-                  Críticas
-                </Link>
-              </li>
             </ul>
           </div>
-          <div>
+          {/* <div>
             <h3 className="text-xl font-bold mb-4 underline">Siga-nos</h3>
             <div className="flex space-x-4">
               <a href="#" className="hover:text-[#d7263d] transition-colors">
@@ -78,7 +70,7 @@ export default function Footer() {
                 <LuInstagram size={24} />
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="mt-8 text-center">
           <p>

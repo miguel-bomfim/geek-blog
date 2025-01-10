@@ -22,7 +22,7 @@ export default function Menu({ categories }: MenuType) {
           <Link href="/" className="text-2xl font-bold flex items-center gap-1">
             <Image className="w-20" alt="" src={logo} />
           </Link>
-          <SearchInput className="md:hidden" />
+          {/* <SearchInput className="md:hidden" /> */}
           <button onClick={toggleMenu} className="md:hidden">
             {isMenuOpen ? <LuX size={24} /> : <LuMenu size={24} />}
           </button>

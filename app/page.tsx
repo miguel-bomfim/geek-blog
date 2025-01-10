@@ -20,7 +20,7 @@ export default async function Home() {
             </h1>
             <p className="text-xl mb-8">Conectando você ao universo nerd!</p>
           </div>
-          <SearchInput className="hidden md:visible md:flex" />
+          {/* <SearchInput className="hidden md:visible md:flex" /> */}
         </section>
 
         <section className="py-12 bg-[#F2F2F2]">
