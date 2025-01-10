@@ -34,7 +34,7 @@ export default async function CategoryPosts({
                       {post.node.resumo}
                     </p>
                     <Link
-                      href={`post/${post.node.slug}`}
+                      href={`/post/${post.node.slug}`}
                       className="mt-4 bg-[#d7263d] px-6 py-3 hover:bg-[#b51d31] transition-colors"
                     >
                       Ler mais

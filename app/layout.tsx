@@ -37,7 +37,7 @@ export default async function RootLayout({
         ></script>
         <Menu categories={categories} />
         {children}
-        <Footer />
+        <Footer categories={categories} />
       </body>
     </html>
   );

@@ -1,7 +1,11 @@
 import Link from "next/link";
-import { LuInstagram } from "react-icons/lu";
+import { CategoryType } from "../types";
 
-export default function Footer() {
+interface FooterType {
+  categories: CategoryType[];
+}
+
+export default function Footer({ categories }: FooterType) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -15,46 +19,19 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4 underline">Categorias</h3>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#d7263d] transition-colors"
-                >
-                  Filmes e Séries
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#d7263d] transition-colors"
-                >
-                  Otaku
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#d7263d] transition-colors"
-                >
-                  Games
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#d7263d] transition-colors"
-                >
-                  Tech
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#d7263d] transition-colors"
-                >
-                  Variedades
-                </Link>
-              </li>
+              {categories.map((category, idx) => {
+                return (
+                  <li>
+                    <Link
+                      key={idx}
+                      href={`/categoria/${category.slug}`}
+                      className="hover:text-[#d7263d] transition-colors"
+                    >
+                      {category.nome}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           {/* <div>
