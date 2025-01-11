@@ -74,9 +74,9 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="bg-[#1A1A1A]">
+        {/* <section className="bg-[#1A1A1A]">
           <Reviews />
-        </section>
+        </section> */}
 
         <section className="bg-[#1B263B] py-12">
           <div className="container mx-auto px-4">
