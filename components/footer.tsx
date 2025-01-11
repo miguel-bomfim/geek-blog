@@ -21,9 +21,8 @@ export default function Footer({ categories }: FooterType) {
             <ul className="space-y-2">
               {categories.map((category, idx) => {
                 return (
-                  <li>
+                  <li key={idx}>
                     <Link
-                      key={idx}
                       href={`/categoria/${category.slug}`}
                       className="hover:text-[#d7263d] transition-colors"
                     >
