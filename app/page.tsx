@@ -5,10 +5,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import SearchInput from "@/components/searchInput";
 import Reviews from "@/components/reviews";
-import { fetchPosts, fetchCategories } from "@/services/hygraphApi";
+import { fetchPosts } from "@/services/hygraphApi";
+import MovieList from "@/components/movielist";
+
+import { fetchMovieDetails } from "@/services/theMovieDB";
 
 export default async function Home() {
   const posts = await fetchPosts();
+  const movies = await fetchMovieDetails();
 
   return (
     <div className="min-h-screen flex flex-col bg-[#1a1a1a] text-white">
@@ -25,6 +29,7 @@ export default async function Home() {
 
         <section className="py-12 bg-[#F2F2F2]">
           <div className="container mx-auto px-4">
+            <MovieList movies={movies} />
             <h2 className="text-3xl font-bold mb-8 text-black">
               Artigos em Destaque
             </h2>
