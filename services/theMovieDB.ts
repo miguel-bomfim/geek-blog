@@ -1,6 +1,8 @@
-export const fetchMovieDetails = async () => {
-  const ENDPOINT = "https://api.themoviedb.org/3/movie/11";
+import { Movie } from "../types";
 
+const ENDPOINT = `https://api.themoviedb.org/3/movie/now_playing?language=pt-BR&page=1`;
+
+export const fetchMovieDetails = async () => {
   const response = await fetch(ENDPOINT, {
     method: "GET",
     headers: {
@@ -9,6 +11,14 @@ export const fetchMovieDetails = async () => {
     },
   });
 
-  const movieDetails = await response.json();
-  return movieDetails; // Retorna os detalhes do filme
+  const { results }: { results: Movie[] } = await response.json();
+
+  const movies = results.map((movie) => ({
+    title: movie.title,
+    releaseDate: movie.release_date,
+    poster: movie.poster_path,
+    review: movie.vote_average,
+  }));
+
+  return movies;
 };
