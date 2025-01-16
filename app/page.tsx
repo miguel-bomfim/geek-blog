@@ -14,6 +14,8 @@ export default async function Home() {
   const posts = await fetchPosts();
   const movies = await fetchMovieDetails();
 
+  alert("🚧Estamos em construção fazendo testes🚧")
+
   return (
     <div className="min-h-screen flex flex-col bg-[#1a1a1a] text-white">
       <main className="flex-grow">
