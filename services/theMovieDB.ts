@@ -1,6 +1,6 @@
 import { Movie } from "../types";
 
-const ENDPOINT = `https://api.themoviedb.org/3/movie/now_playing?language=pt-BR&page=1`;
+const ENDPOINT = `https://api.themoviedb.org/3/movie/popular?language=pt-BR`;
 
 export const fetchMovieDetails = async () => {
   const response = await fetch(ENDPOINT, {

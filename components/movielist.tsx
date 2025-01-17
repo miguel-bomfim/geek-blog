@@ -14,7 +14,6 @@ type Movie = {
 };
 
 export default function MovieList({ movies }: { movies: Movie[] }) {
-  const images = movies.map((movie) => movie.poster);
   const autoPlayInterval = 3000;
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -24,7 +23,7 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
   const calculateVisibleItems = (): void => {
     if (containerRef.current) {
       const containerWidth = containerRef.current.offsetWidth; // Largura do container
-      const itemWidth = 146; // Largura fixa de cada item
+      const itemWidth = 160; // Largura fixa de cada item
       const items = Math.floor(containerWidth / itemWidth); // Quantos itens cabem
       setVisibleItems(items);
     }
@@ -39,14 +38,14 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
   // Avançar para a próxima imagem
   const handleNext = (): void => {
     setCurrentIndex((prevIndex) =>
-      prevIndex < images.length - visibleItems ? prevIndex + 1 : 0,
+      prevIndex < movies.length - visibleItems ? prevIndex + 1 : 0
     );
   };
 
   // Voltar para a imagem anterior
   const handlePrev = (): void => {
     setCurrentIndex((prevIndex) =>
-      prevIndex > 0 ? prevIndex - 1 : images.length - visibleItems,
+      prevIndex > 0 ? prevIndex - 1 : movies.length - visibleItems
     );
   };
 
@@ -56,11 +55,9 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
     return () => window.removeEventListener("resize", calculateVisibleItems);
   }, []);
 
-  // Autoplay: Avança automaticamente após o intervalo definido
   useEffect(() => {
     const interval = setInterval(handleNext, autoPlayInterval);
 
-    // Limpeza do intervalo ao desmontar o componente
     return () => clearInterval(interval);
   }, [currentIndex, autoPlayInterval]);
 
@@ -71,14 +68,13 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
         <button
           onClick={handlePrev}
           className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded hover:bg-gray-800 z-10 disabled:opacity-50"
-          disabled={images.length <= visibleItems}
         >
           {"<"}
         </button>
         <div
           className="flex transition-transform duration-300 ease-in-out"
           style={{
-            transform: `translateX(-${(currentIndex * 100) / visibleItems}%)`,
+            transform: `translateX(-${currentIndex * 159.2}px)`,
           }}
         >
           {movies.map((movie, index) => {
@@ -107,7 +103,6 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
         <button
           onClick={handleNext}
           className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded hover:bg-gray-800 z-10 disabled:opacity-50"
-          disabled={images.length <= visibleItems}
         >
           {">"}
         </button>
