@@ -62,17 +62,17 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
   }, [currentIndex, autoPlayInterval]);
 
   return (
-    <section className="mb-14 -mt-12">
-      <h2 className="text-black text-xl">Em cartaz</h2>
+    <section className="mb-14 -mt-10">
+      <h2 className="text-black text-xl">Filmes populares</h2>
       <div className="relative w-full overflow-hidden" ref={containerRef}>
         <button
           onClick={handlePrev}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded hover:bg-gray-800 z-10 disabled:opacity-50"
+          className="absolute  z-20 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded hover:bg-gray-800"
         >
           {"<"}
         </button>
         <div
-          className="flex transition-transform duration-300 ease-in-out"
+          className="flex transition-transform gap-4 duration-300 ease-in-out"
           style={{
             transform: `translateX(-${currentIndex * 159.2}px)`,
           }}
@@ -81,7 +81,7 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
             return (
               <div
                 key={index}
-                className="flex-shrink-0 w-36 mx-2 bg-gray-200 rounded overflow-hidden"
+                className="flex-shrink-0 w-36 bg-gray-200 rounded overflow-hidden"
               >
                 <Image
                   className="w-full object-cover"
@@ -90,15 +90,30 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
                   alt=""
                   src={tmdbImageURL(movie.poster)}
                 />
-                <p className="text-center border-blue-300 border-x-4 text-black text-xs">
+                <p className="text-center border-black border-x-4 text-black text-xs">
                   {brazilianDate(movie.releaseDate)}
                 </p>
-                <span className="text-bold flex justify-center w-full bg-blue-300 text-black">
+                <span className="text-bold flex justify-center w-full bg-black text-white">
                   {Number(movie.review).toFixed(1)}
                 </span>
               </div>
             );
           })}
+          <div className="flex-shrink-0 w-36 bg-gray-200 rounded overflow-hidden">
+            <Image
+              className="w-full object-cover"
+              width={500}
+              height={500}
+              alt=""
+              src={tmdbImageURL(movies[0].poster)}
+            />
+            <p className="text-center border-black border-x-4 text-black text-xs">
+              {brazilianDate(movies[0].releaseDate)}
+            </p>
+            <span className="text-bold flex justify-center w-full bg-black text-white">
+              {Number(movies[0].review).toFixed(1)}
+            </span>
+          </div>
         </div>
         <button
           onClick={handleNext}

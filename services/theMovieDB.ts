@@ -5,6 +5,7 @@ const ENDPOINT = `https://api.themoviedb.org/3/movie/popular?language=pt-BR`;
 export const fetchMovieDetails = async () => {
   const response = await fetch(ENDPOINT, {
     method: "GET",
+    next: { revalidate: 60 },
     headers: {
       Authorization: `Bearer ${process.env.MOVIEDB_API_KEY}`,
       "Content-Type": "application/json",
