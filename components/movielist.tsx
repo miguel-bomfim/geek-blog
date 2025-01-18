@@ -62,7 +62,7 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
   }, [currentIndex, autoPlayInterval]);
 
   return (
-    <section className="mb-14 -mt-10">
+    <section className="mb-14 -mt-6">
       <h2 className="text-black text-xl">Filmes populares</h2>
       <div className="relative w-full overflow-hidden" ref={containerRef}>
         <button
