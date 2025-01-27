@@ -1,4 +1,4 @@
-type Author = {
+export type Author = {
   bio: string;
   nome: string;
   id: string;
@@ -20,6 +20,8 @@ export interface PostsType {
             resumo: string;
             imagemDestaque: {
               url: string;
+              width: number;
+              height: number;
             };
             categoria: CategoryType[];
           };
@@ -52,11 +54,9 @@ export interface CategoryType {
   slug?: string;
 }
 
-
 export type Movie = {
   title: string;
   release_date: string;
   poster_path: string;
   vote_average: string;
 };
-

@@ -49,6 +49,7 @@ export default function Reviews() {
             className="flex flex-col items-center justify-between"
           >
             <Image
+              priority
               src={movie.imageUrl}
               alt={movie.title}
               width={300}

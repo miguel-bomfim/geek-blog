@@ -33,20 +33,6 @@ export default function Footer({ categories }: FooterType) {
               })}
             </ul>
           </div>
-          {/* <div>
-            <h3 className="text-xl font-bold mb-4 underline">Siga-nos</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-[#d7263d] transition-colors">
-                <LuInstagram size={24} />
-              </a>
-              <a href="#" className="hover:text-[#d7263d] transition-colors">
-                <LuInstagram size={24} />
-              </a>
-              <a href="#" className="hover:text-[#d7263d] transition-colors">
-                <LuInstagram size={24} />
-              </a>
-            </div>
-          </div> */}
         </div>
         <div className="mt-8 text-center">
           <p>

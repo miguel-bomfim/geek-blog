@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { LuMenu, LuX } from "react-icons/lu";
 import logo from "../app/assets/logo.png";
-import SearchInput from "@/components/searchInput";
 import { CategoryType } from "../types";
 
 interface MenuType {
@@ -22,7 +21,6 @@ export default function Menu({ categories }: MenuType) {
           <Link href="/" className="text-2xl font-bold flex items-center gap-1">
             <Image className="w-20" alt="" src={logo} />
           </Link>
-          {/* <SearchInput className="md:hidden" /> */}
           <button onClick={toggleMenu} className="md:hidden">
             {isMenuOpen ? <LuX size={24} /> : <LuMenu size={24} />}
           </button>

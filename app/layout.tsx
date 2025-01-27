@@ -30,11 +30,6 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${robotoRegular.variable} ${robotoBold.variable}`}>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9534755771299362"
-          crossOrigin="anonymous"
-        ></script>
         <Menu categories={categories} />
         {children}
         <Footer categories={categories} />

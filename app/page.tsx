@@ -1,19 +1,15 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import SearchInput from "@/components/searchInput";
 import Reviews from "@/components/reviews";
-import { fetchPosts } from "@/services/hygraphApi";
 import MovieList from "@/components/movielist";
 
+import { fetchPosts } from "@/services/hygraphApi";
 import { fetchMovieDetails } from "@/services/theMovieDB";
 
 export default async function Home() {
   const posts = await fetchPosts();
   const movies = await fetchMovieDetails();
-
 
   return (
     <div className="min-h-screen flex flex-col bg-[#1a1a1a] text-white">
@@ -25,7 +21,6 @@ export default async function Home() {
             </h1>
             <p className="text-xl mb-8">Conectando você ao universo nerd!</p>
           </div>
-          {/* <SearchInput className="hidden md:visible md:flex" /> */}
         </section>
 
         <section className="py-12 bg-[#F2F2F2]">
@@ -42,9 +37,12 @@ export default async function Home() {
                     i === 0 ? "md:col-span-2 md:row-span-2" : ""
                   }`}
                 >
-                  <img
+                  <Image
                     src={post.node.imagemDestaque.url}
                     alt={`Imagem do Artigo ${i}`}
+                    priority
+                    width={post.node.imagemDestaque.width}
+                    height={post.node.imagemDestaque.height}
                     className={`w-full object-cover transition-transform duration-300 group-hover:scale-110 ${
                       i === 0 ? "h-[600px] md:h-full" : "h-80"
                     }`}
@@ -80,9 +78,9 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* <section className="bg-[#1A1A1A]">
+        <section className="bg-[#1A1A1A]">
           <Reviews />
-        </section> */}
+        </section>
 
         <section className="bg-[#1B263B] py-12">
           <div className="container mx-auto px-4">
@@ -90,21 +88,21 @@ export default async function Home() {
               Contribua com o Perfil Nerd!
             </h2>
             <form className="max-w-md mx-auto flex flex-col gap-4">
-              <Input
+              <input
                 type="email"
                 placeholder="Seu e-mail"
-                className="bg-white text-[#1a1a1a]"
+                className="bg-white text-[#1a1a1a] px-3 py-1"
               />
-              <Textarea
+              <textarea
                 placeholder="Sua mensagem, sugestão, critica ou ideia aqui:"
-                className="bg-white text-[#1a1a1a]"
+                className="bg-white text-[#1a1a1a] px-3 py-2"
               />
-              <Button
+              <button
                 type="submit"
-                className="bg-[#d7263d] hover:bg-[#b51d31] transition-colors"
+                className="bg-[#d7263d] hover:bg-[#b51d31] transition-colors p-2"
               >
                 Contribuir
-              </Button>
+              </button>
             </form>
           </div>
         </section>

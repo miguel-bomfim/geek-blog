@@ -26,6 +26,8 @@ export const fetchPosts = async () => {
                   resumo
                   imagemDestaque {
                     url
+                    width
+                    height
                   }
                   categoria {
                     nome

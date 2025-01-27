@@ -29,12 +29,6 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
     }
   };
 
-  const brazilianDate = (releaseDate: string) => {
-    const date = new Date(releaseDate);
-    const brazilianFormat = date.toLocaleDateString("pt-BR");
-    return brazilianFormat;
-  };
-
   // Avançar para a próxima imagem
   const handleNext = (): void => {
     setCurrentIndex((prevIndex) =>
@@ -81,35 +75,30 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
             return (
               <div
                 key={index}
-                className="flex-shrink-0 w-36 bg-gray-200 rounded overflow-hidden"
+                className="flex-shrink-0 w-36 flex flex-col bg-gray-200 rounded overflow-hidden"
               >
                 <Image
-                  className="w-full object-cover"
+                  className="w-full grow object-cover"
                   width={500}
+                  priority
                   height={500}
-                  alt=""
+                  alt={movie.title}
                   src={tmdbImageURL(movie.poster)}
                 />
-                <p className="text-center border-black border-x-4 text-black text-xs">
-                  {brazilianDate(movie.releaseDate)}
-                </p>
                 <span className="text-bold flex justify-center w-full bg-black text-white">
                   {Number(movie.review).toFixed(1)}
                 </span>
               </div>
             );
           })}
-          <div className="flex-shrink-0 w-36 bg-gray-200 rounded overflow-hidden">
+          <div className="flex-shrink-0 flex flex-col w-36 bg-gray-200 rounded overflow-hidden">
             <Image
-              className="w-full object-cover"
+              className="w-full grow object-cover"
               width={500}
               height={500}
               alt=""
               src={tmdbImageURL(movies[0].poster)}
             />
-            <p className="text-center border-black border-x-4 text-black text-xs">
-              {brazilianDate(movies[0].releaseDate)}
-            </p>
             <span className="text-bold flex justify-center w-full bg-black text-white">
               {Number(movies[0].review).toFixed(1)}
             </span>
