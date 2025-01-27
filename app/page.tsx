@@ -41,8 +41,8 @@ export default async function Home() {
                     src={post.node.imagemDestaque.url}
                     alt={`Imagem do Artigo ${i}`}
                     priority
-                    width={post.node.imagemDestaque.width}
-                    height={post.node.imagemDestaque.height}
+                    width={1080}
+                    height={1080}
                     className={`w-full object-cover transition-transform duration-300 group-hover:scale-110 ${
                       i === 0 ? "h-[600px] md:h-full" : "h-80"
                     }`}
